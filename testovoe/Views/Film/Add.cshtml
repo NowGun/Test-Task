@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Добавить новый фильм";
+}
+
+@model testovoe.Data.Entities.Film
+
+<div>
+    <div>
+        <h1 class="display-6 p-2 bd-highlight">Добавление фильма</h1>
+    </div>
+    <hr />
+    <form asp-action="Add" asp-controller="Film" method="post" enctype="multipart/form-data">
+        <div class="d-flex flex-row bd-highlight mb-3">
+            <div class="p-2 bd-highlight">
+                <div>
+                    <img src="" class="text-center rounded" alt="" style="width: 20rem;" id="frame"/>
+                </div>
+                <div class="my-3">
+                    <label asp-for="File" class="form-label"></label>
+                    <input type="file" class="form-control" value="Выбрать постер" asp-for="File" accept=".jpg, .jpeg, .png" onchange="preview()" />
+                </div>
+            </div>
+            <div class="mx-3 p-2 bd-highlight">
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input type="text" asp-for="Name" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label"></label>
+                    <input type="text" asp-for="Description" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="YearRelease" class="form-label"></label>
+                    <input type="text" asp-for="YearRelease" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Producer" class="form-label"></label>
+                    <input type="text" asp-for="Producer" class="form-control" />
+                </div>
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+            <div class="p-2 bd-highlight">
+                <div asp-validation-summary="All"></div>
+            </div>
+        </div>
+    </form>
+</div>

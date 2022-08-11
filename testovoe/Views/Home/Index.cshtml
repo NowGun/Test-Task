@@ -1,0 +1,83 @@
+﻿@using Microsoft.AspNetCore.Identity
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@inject SignInManager<User> SignInManager
+
+<div>
+    <div class="d-flex justify-content-between bd-highlight mb-3">
+        <h1 class="display-6 p-2 bd-highlight">Последние поступления</h1>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <a asp-action="Add" asp-controller="Film"  class="align-self-center p-2 bd-highlight btn btn-secondary" style="height:40px; width: 150px;">Добавить</a>
+        }
+    </div>
+    <hr />
+    <div class="container">
+        <div class="row row-cols-auto g-0 ">
+            <div class="card col" style="width: 14rem; margin: 10px">
+                <a asp-controller="Home" asp-action="Film">
+                    <img src="~/images/posters/сол.jpg" alt="" class="card-img-top" />
+                    <div class="card-body">
+                        <p class="card-text text-black">Лучше звоните Солу</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="card col" style="width: 14rem; margin: 10px">
+                <a asp-controller="Home" asp-action="Film">
+                    <img src="~/images/posters/сол.jpg" alt="" class="card-img-top" />
+                    <div class="card-body">
+                        <p class="card-text text-black">Лучше звоните Солу</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="card col" style="width: 14rem; margin: 10px">
+                <a asp-controller="Home" asp-action="Film">
+                    <img src="~/images/posters/сол.jpg" alt="" class="card-img-top" />
+                    <div class="card-body">
+                        <p class="card-text text-black">Лучше звоните Солу</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="card col" style="width: 14rem; margin: 10px">
+                <a asp-controller="Home" asp-action="Film">
+                    <img src="~/images/posters/сол.jpg" alt="" class="card-img-top" />
+                    <div class="card-body">
+                        <p class="card-text text-black">Лучше звоните Солу</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="card col" style="width: 14rem; margin: 10px">
+                <a asp-controller="Home" asp-action="Film">
+                    <img src="~/images/posters/сол.jpg" alt="" class="card-img-top" />
+                    <div class="card-body">
+                        <p class="card-text text-black">Лучше звоните Солу</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="card col" style="width: 14rem; margin: 10px">
+                <a asp-controller="Home" asp-action="Film">
+                    <img src="~/images/posters/сол.jpg" alt="" class="card-img-top" />
+                    <div class="card-body">
+                        <p class="card-text text-black">Лучше звоните Солу</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="card col" style="width: 14rem; margin: 10px">
+                <a asp-controller="Home" asp-action="Film">
+                    <img src="~/images/posters/сол.jpg" alt="" class="card-img-top" />
+                    <div class="card-body">
+                        <p class="card-text text-black">Лучше звоните Солу</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

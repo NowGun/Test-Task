@@ -220,8 +220,7 @@ namespace testovoe.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Films_UserId",
                 table: "Films",
-                column: "UserId",
-                unique: true);
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

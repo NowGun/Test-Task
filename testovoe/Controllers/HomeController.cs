@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Security.Claims;
+using testovoe.Data;
 using testovoe.Models;
 
 namespace testovoe.Controllers
@@ -7,15 +10,17 @@ namespace testovoe.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        ApplicationDbContext _db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext db)
         {
             _logger = logger;
+            _db = db;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await _db.Films.ToListAsync());
         }
 
         public IActionResult Film() => View();

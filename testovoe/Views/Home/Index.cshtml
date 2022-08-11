@@ -5,6 +5,8 @@
 
 @inject SignInManager<User> SignInManager
 
+@model IEnumerable<testovoe.Data.Entities.Film>
+
 <div>
     <div class="d-flex justify-content-between bd-highlight mb-3">
         <h1 class="display-6 p-2 bd-highlight">Последние поступления</h1>
@@ -16,68 +18,19 @@
     <hr />
     <div class="container">
         <div class="row row-cols-auto g-0 ">
-            <div class="card col" style="width: 14rem; margin: 10px">
-                <a asp-controller="Home" asp-action="Film">
-                    <img src="~/images/posters/сол.jpg" alt="" class="card-img-top" />
-                    <div class="card-body">
-                        <p class="card-text text-black">Лучше звоните Солу</p>
-                    </div>
-                </a>
-            </div>
 
-            <div class="card col" style="width: 14rem; margin: 10px">
+            @foreach (var item in Model)
+            {
+                <div class="card col" style="width: 14rem; margin: 10px">
                 <a asp-controller="Home" asp-action="Film">
-                    <img src="~/images/posters/сол.jpg" alt="" class="card-img-top" />
+                    <img src="~/images/posters/@item.PosterName" alt="" class="card-img-top" />
                     <div class="card-body">
-                        <p class="card-text text-black">Лучше звоните Солу</p>
+                        <p class="card-text text-black">@item.Name</p>
                     </div>
                 </a>
             </div>
+            }
 
-            <div class="card col" style="width: 14rem; margin: 10px">
-                <a asp-controller="Home" asp-action="Film">
-                    <img src="~/images/posters/сол.jpg" alt="" class="card-img-top" />
-                    <div class="card-body">
-                        <p class="card-text text-black">Лучше звоните Солу</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="card col" style="width: 14rem; margin: 10px">
-                <a asp-controller="Home" asp-action="Film">
-                    <img src="~/images/posters/сол.jpg" alt="" class="card-img-top" />
-                    <div class="card-body">
-                        <p class="card-text text-black">Лучше звоните Солу</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="card col" style="width: 14rem; margin: 10px">
-                <a asp-controller="Home" asp-action="Film">
-                    <img src="~/images/posters/сол.jpg" alt="" class="card-img-top" />
-                    <div class="card-body">
-                        <p class="card-text text-black">Лучше звоните Солу</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="card col" style="width: 14rem; margin: 10px">
-                <a asp-controller="Home" asp-action="Film">
-                    <img src="~/images/posters/сол.jpg" alt="" class="card-img-top" />
-                    <div class="card-body">
-                        <p class="card-text text-black">Лучше звоните Солу</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="card col" style="width: 14rem; margin: 10px">
-                <a asp-controller="Home" asp-action="Film">
-                    <img src="~/images/posters/сол.jpg" alt="" class="card-img-top" />
-                    <div class="card-body">
-                        <p class="card-text text-black">Лучше звоните Солу</p>
-                    </div>
-                </a>
-            </div>
         </div>
     </div>
 </div>

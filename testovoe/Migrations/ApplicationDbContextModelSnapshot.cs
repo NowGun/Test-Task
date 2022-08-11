@@ -183,8 +183,7 @@ namespace testovoe.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.ToTable("Films");
                 });
@@ -314,15 +313,16 @@ namespace testovoe.Migrations
 
             modelBuilder.Entity("testovoe.Data.Entities.Film", b =>
                 {
-                    b.HasOne("testovoe.Models.User", null)
-                        .WithOne("Film")
-                        .HasForeignKey("testovoe.Data.Entities.Film", "UserId");
+                    b.HasOne("testovoe.Models.User", "UserNavigation")
+                        .WithMany("Films")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("UserNavigation");
                 });
 
             modelBuilder.Entity("testovoe.Models.User", b =>
                 {
-                    b.Navigation("Film")
-                        .IsRequired();
+                    b.Navigation("Films");
                 });
 #pragma warning restore 612, 618
         }

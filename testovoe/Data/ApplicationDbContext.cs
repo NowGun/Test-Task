@@ -19,9 +19,15 @@ namespace testovoe.Data
         {
 
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Film>()
+                .Property(p => p.Id)
+                .ValueGeneratedOnAdd();
+
+            base.OnModelCreating(modelBuilder);
+        }
 
         public DbSet<Film> Films { get; set; }
-
-
     }
 }

@@ -6,13 +6,12 @@ namespace testovoe.Data.Entities
 {
     public class Film
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Название фильма обязательно")]
         [Display(Name = "Название фильма")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [Display(Name = "Описание")]
         public string? Description { get; set; }
@@ -30,5 +29,7 @@ namespace testovoe.Data.Entities
         public IFormFile? File { get; set; }
 
         public string? UserId { get; set; }
+
+        public virtual User? UserNavigation { get; set; }
     }
 }

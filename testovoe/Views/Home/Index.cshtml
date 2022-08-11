@@ -12,7 +12,7 @@
         <h1 class="display-6 p-2 bd-highlight">Последние поступления</h1>
         @if (SignInManager.IsSignedIn(User))
         {
-            <a asp-action="Add" asp-controller="Film"  class="align-self-center p-2 bd-highlight btn btn-secondary" style="height:40px; width: 150px;">Добавить</a>
+            <a asp-action="Add" asp-controller="Film" class="align-self-center p-2 bd-highlight btn btn-secondary" style="height:40px; width: 150px;">Добавить</a>
         }
     </div>
     <hr />
@@ -21,14 +21,14 @@
 
             @foreach (var item in Model)
             {
-                <div class="card col" style="width: 14rem; margin: 10px">
-                <a asp-controller="Home" asp-action="Film">
-                    <img src="~/images/posters/@item.PosterName" alt="" class="card-img-top" />
-                    <div class="card-body">
-                        <p class="card-text text-black">@item.Name</p>
-                    </div>
-                </a>
-            </div>
+                <div class="card col" style=" margin: 10px">
+                    <a asp-controller="Home" asp-action="Film">
+                        <img src="~/images/posters/@item.PosterName" alt="" class="card-img-top" />
+                        <div class="card-text">
+                            <p class="card-text text-black">@item.Name</p>
+                        </div>
+                    </a>
+                </div>
             }
 
         </div>

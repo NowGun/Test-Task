@@ -21,7 +21,7 @@ namespace testovoe.Controllers
 
         public async Task<IActionResult> Index(int page = 1)
         {
-            int pageSize = 4;
+            int pageSize = 8;
 
             var source = await _db.Films.ToListAsync();
             var count = source.Count;

@@ -94,7 +94,7 @@ namespace testovoe.Controllers
 
                     await _db.SaveChangesAsync();
 
-                    return RedirectToAction("Info", "Film", await _db.Films.FirstOrDefaultAsync(film => film.Id == model.Id));
+                    return RedirectToAction("Index", "Home");
                 }
             }
 

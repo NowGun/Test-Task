@@ -13,16 +13,25 @@
         <nav class="py-2 bg-light border-bottom">
             <div class="container d-flex flex-wrap">
                 <ul class="nav me-auto">
+
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Фильмы</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
                     </li>
+
+                    <li class="nav-item">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="MyFilm">Мои фильмы</a>
+                        }
+                    </li>
+
                 </ul>
                 <partial name="_LoginPartial" />
             </div>
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3 mt-3 px-3">
             @RenderBody()
         </main>
     </div>

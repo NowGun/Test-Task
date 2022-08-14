@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
-using testovoe.Data.Entities;
 
 namespace testovoe.Models
 {

@@ -1,15 +1,19 @@
-﻿@model testovoe.Models.LoginViewModel
+﻿@using testovoe.ViewModels
+@model LoginViewModel
 
 @{
     ViewData["Title"] = "Авторизация";
 }
 
 <div>
+
     <div>
-        <h1 class="display-6 p-2 bd-highlight">Авторизация</h1>
+        <h1 class="display-6">Авторизация</h1>
+        <hr />
     </div>
-    <hr />
-    <div class="d-flex justify-content-around bd-highlight align-items-center">
+
+    <div class="d-flex flex-row bd-highlight align-items-center">
+
         <div class="bd-highlight">
             <form asp-action="Login" asp-controller="Account" method="post" asp-route-returnUrl="@Model.ReturnUrl">
                 <div asp-validation-summary="ModelOnly"></div>
@@ -17,32 +21,37 @@
                 <div class="mb-3">
                     <label class="form-label" asp-for="Email"></label>
                     <input class="form-control" asp-for="Email" type="text" value="" />
+                    <span asp-validation-for="Email"></span>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" asp-for="Password"></label>
                     <input class="form-control" asp-for="Password" type="password" />
+                    <span asp-validation-for="Password"></span>
                 </div>
 
                 <div class="px-3 d-flex align-items-center justify-content-center">
+
                     <div class="p-2 bd-highlight form-check">
                         <input type="checkbox" class="form-check-input" id="Checkbox" />
                         <label class="form-check-label" for="CheckBox">Запомнить меня</label>
                     </div>
 
                     <div class="px-2 bd-highlight">
-                        <input type="submit" class="btn btn-primary" value="Войти" style="width: 150px;"/>
+                        <input type="submit" class="btn btn-primary" value="Войти" style="width: 150px;" />
                     </div>
+
                 </div>
 
             </form>
         </div>
-        
-        <div class="p-2 bd-highlight">
+
+        <div class="p-2 bd-highlight ms-5">
             <h2>Еще не зарегистрированы?</h2>
             <p>Зарегистрируйтесь в системе чтобы можно было <br> добавлять новые фильмы</p>
             <a class="btn btn-secondary" asp-controller="Account" asp-action="Register">Зарегистрироваться</a>
         </div>
+
     </div>
 </div>
 

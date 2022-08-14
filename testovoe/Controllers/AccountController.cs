@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
+using testovoe.Data;
 using testovoe.Models;
+using testovoe.ViewModels;
 
 namespace testovoe.Controllers
 {
@@ -22,7 +26,7 @@ namespace testovoe.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login(string returnUrl = null)
+        public IActionResult Login(string? returnUrl = null)
         {
             return View(new LoginViewModel { ReturnUrl = returnUrl });
         }
@@ -43,11 +47,12 @@ namespace testovoe.Controllers
                     }
                     else return RedirectToAction("Index", "Home");
                 }
+                else
+                {
+                    ModelState.AddModelError("", "Неверный логин или пароль");
+                }
             }
-            else
-            {
-                ModelState.AddModelError("", "Неправильный логин или пароль");
-            }
+
             return View(model);
         }
 
@@ -64,7 +69,13 @@ namespace testovoe.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User { Name = model.Name, Surname = model.Surname, Email = model.Email, UserName = model.Email };
+                User user = new()
+                {
+                    Name = model.Name,
+                    Surname = model.Surname,
+                    Email = model.Email,
+                    UserName = model.Email
+                };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
 

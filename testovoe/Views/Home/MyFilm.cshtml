@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Мои фильмы";
+}
+
+@model IEnumerable<Film>
+
+<div>
+    <div>
+        <h1 class="display-6 p-2">Мои фильмы</h1>
+        <hr />
+    </div>
+
+    <div class="container">
+        <div class="row row-cols-auto g-0 ">
+
+            @foreach (var item in Model)
+            {
+                <div class="card col" style=" margin: 10px">
+                    <a asp-controller="Film" asp-action="Info" asp-route-id="@item.Id">
+                        <img src="~/images/posters/@item.PosterName" alt="" class="card-img" />
+
+                        <form method="post" asp-route-id="@item.Id" asp-controller="Film" asp-action="Delete">
+                            <div class="card-btn">
+                                <a asp-controller="Film" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-change btn-sm">Изменить</a>
+                                <input class="btn btn-change btn-sm" type="submit" value="Удалить" />
+                            </div>
+                        </form>
+
+                        <div class="card-text">
+                            <p class="card-text text-black">@item.Name</p>
+                        </div>
+                    </a>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

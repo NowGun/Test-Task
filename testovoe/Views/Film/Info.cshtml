@@ -1,0 +1,42 @@
+﻿@model Film
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<div>
+    <div>
+        <h1 class="display-8 p-2 bd-highlight">@Model.Name</h1>
+    </div>
+    <div class=d-flex flex-row bd-highlight mb-3">
+        <div class="p-2 bd-highlight">
+            <img class="image-info" src="~/images/posters/@Model.PosterName" alt="" />
+        </div>
+        <div class="p-2 bd-highlight">
+            @if (Model.YearRelease != null)
+            {
+                <div>
+                    <label asp-for="YearRelease"><b>Год выпуска:</b> @Model.YearRelease</label>
+                </div>
+                
+            }
+
+            @if (Model.Producer != null)
+            {
+                <div>
+                    <label asp-for="Producer" class="my-2"><b>Режиссёр:</b> @Model.Producer</label>
+                </div>
+                
+            }
+
+            @if (Model.Description != null)
+            {
+                <div>
+                    <label><b>Описание</b></label>
+                    <p style="width: 70%">@Model.Description</p>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

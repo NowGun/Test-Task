@@ -1,48 +1,62 @@
-﻿@{
+﻿@using testovoe.ViewModels
+@model RegisterViewModel
+
+@{
     ViewData["Title"] = "Регистрация";
 }
 
-@model testovoe.Models.RegisterViewModel
+<div>
 
-<div class="text-left">
     <div>
-        <h1 class="display-6 p-2 bd-highlight">Регистрация</h1>
+        <h1 class="display-6">Регистрация</h1>
+        <hr />
     </div>
-    <hr />
-    <div class="card">
+
+    <div class="card-register">
+
         <div class="card-body">
+
             <form asp-controller="Account" asp-action="Register" method="post">
+
                 <h5 class="card-title">Для регистрации заполните все поля</h5>
 
                 <div class="mb-3">
                     <label>Имя</label>
-                    <input asp-for="Name" class="form-control" type="text" placeholder="Иван"/>
+                    <input asp-for="Name" class="form-control" type="text" placeholder="Иван" />
+                    <span asp-validation-for="Name"></span>
                 </div>
 
                 <div class="mb-3">
                     <label>Фамилия</label>
-                    <input class="form-control" type="text" asp-for="Surname" placeholder="Иванов"/>
+                    <input class="form-control" type="text" asp-for="Surname" placeholder="Иванов" />
+                    <span asp-validation-for="Surname"></span>
                 </div>
 
                 <div class="mb-3">
                     <label>Почта</label>
                     <input class="form-control" type="email" asp-for="Email" placeholder="Введите адрес электронной почты" />
+                    <span asp-validation-for="Email"></span>
                 </div>
 
                 <div class="mb-3">
                     <label>Пароль</label>
-                    <input class="form-control" type="password" asp-for="Password" placeholder="*********"/>
+                    <input class="form-control" type="password" asp-for="Password" placeholder="*********" />
+                    <span asp-validation-for="Password"></span>
                 </div>
 
                 <div class="mb-3">
                     <label>Подтвердите пароль</label>
-                    <input class="form-control" type="password" asp-for="ConfirmPassword" placeholder="*********"/>
+                    <input class="form-control" type="password" asp-for="ConfirmPassword" placeholder="*********" />
+                    <span asp-validation-for="ConfirmPassword"></span>
                 </div>
+
                 <div class="d-flex align-items-center">
-                    <input type="submit" value="Зарегистрироваться" class="btn btn-primary p-2 bd-highlight" style="width:180px;"/>
-                    <div class="p-2 bd-highlight" asp-validation-summary="All"></div>
+                    <input type="submit" value="Зарегистрироваться" class="btn btn-primary p-2 bd-highlight" style="width:180px;" />
+                    <div class="p-2 bd-highlight" asp-validation-summary="ModelOnly"></div>
                 </div>
+
             </form>
+
         </div>
     </div>
 </div>

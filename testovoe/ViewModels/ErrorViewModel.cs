@@ -1,4 +1,4 @@
-namespace testovoe.Models
+namespace testovoe.ViewModels
 {
     public class ErrorViewModel
     {

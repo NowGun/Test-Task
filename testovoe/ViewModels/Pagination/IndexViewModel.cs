@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using testovoe.Models;
 
-namespace testovoe.ViewModels
+namespace testovoe.ViewModels.Pagination
 {
     public class IndexViewModel
     {
-        public IEnumerable<User> Users { get; set; }
+        public IEnumerable<Film> Films { get; set; }
         public PageViewModel PageViewModel { get; set; }
     }
 }

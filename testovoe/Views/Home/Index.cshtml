@@ -1,11 +1,13 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using testovoe.ViewModels.Pagination
+
 @{
     ViewData["Title"] = "Главная";
 }
 
 @inject SignInManager<User> SignInManager
 
-@model IEnumerable<Film>
+@model IndexViewModel
 
 <div>
 
@@ -29,7 +31,7 @@
 
         <div class="row row-cols-auto g-0">
 
-            @foreach (var item in Model)
+            @foreach (var item in Model.Films)
             {
                 <div class="card col" style="margin: 10px">
 
@@ -48,4 +50,27 @@
 
         </div>
     </div>
+
+    <div class="mt-3">
+        @if (Model.PageViewModel.HasPreviousPage)
+        {
+            <a asp-action="Index"
+           asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+           class="btn btn-outline-secondary">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Назад
+            </a>
+        }
+
+        @if (Model.PageViewModel.HasNextPage)
+        {
+            <a asp-action="Index"
+           asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+           class="btn btn-outline-secondary">
+                Вперед
+                <i class="glyphicon glyphicon-chevron-right"></i>
+            </a>
+        }
+    </div>
+
 </div>

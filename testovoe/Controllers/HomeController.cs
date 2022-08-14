@@ -6,6 +6,7 @@ using System.Security.Claims;
 using testovoe.Data;
 using testovoe.Models;
 using testovoe.ViewModels;
+using testovoe.ViewModels.Pagination;
 
 namespace testovoe.Controllers
 {
@@ -18,9 +19,22 @@ namespace testovoe.Controllers
             _db = db;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            return View(await _db.Films.ToListAsync());
+            int pageSize = 4;
+
+            var source = await _db.Films.ToListAsync();
+            var count = source.Count;
+            var items = source.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            PageViewModel pgm = new(count, page, pageSize);
+            IndexViewModel ivm = new()
+            {
+                PageViewModel = pgm,
+                Films = items
+            };
+
+            return View(ivm);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

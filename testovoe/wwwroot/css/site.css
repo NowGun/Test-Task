@@ -76,6 +76,7 @@ a {
     }
 
 .image-info {
+    box-shadow: 0 0 12px 0 rgb(38, 38, 38, 0.1);
     border-radius: 10px;
     object-fit: cover;
     height: 500px;
